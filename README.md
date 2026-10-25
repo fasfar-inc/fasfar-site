@@ -2,7 +2,7 @@
 
 The official FASFAR website: Next.js App Router, TypeScript, Tailwind CSS v4, GSAP + ScrollTrigger, and React Three Fiber / Drei.
 
-This is a standalone app with its own dependencies, so it can move to its own repository unchanged. The parent repository's lint and typecheck exclude this folder.
+A standalone Next.js app: clone, install and run.
 
 The home page is one continuous scroll experience. It has eight scenes and a footer:
 
