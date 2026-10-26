@@ -11,7 +11,7 @@ The home page is one continuous scroll experience. It has eight scenes and a foo
 3. **Beyond the ordinary:** the cards fall away, the sculpture rises out of frame and the stage returns to warm ivory. WE THINK. / WE CREATE. / WE BUILD. are revealed one at a time at full-screen scale, with masks, perspective and a fill wipe. They then settle into an asymmetric composition with the headline, the supporting text and a magnetic "Discover FASFAR" button, while chrome, pearl and glass pieces float into the gaps.
 
 4. **Our Ventures:** BIG IDEAS. / DIFFERENT WORLDS. rises in, and its ink sweeps into the ventures' brand colours. Each venture then takes the stage in turn, with its own visual, entrance and scroll-driven story:
-   - GARDAŞ: a floating 3D phone with a route drawing across a map.
+   - GARDAŞ: an editorial layout (FASFAR kicker, headline, highlights) beside a full-bleed scene of the app, a GARDAŞ taxi and Kyrenia harbour that settles in and slowly pushes in as you scroll.
    - GARPUZ: its real wordmark, watermelon emblem and product imagery, around a price-comparison card that steps through products.
    - MenuFlex: a phone menu that changes category, and a QR card that scans on hover.
    - FFMate: a conversation that builds up next to a luminous automation flow.

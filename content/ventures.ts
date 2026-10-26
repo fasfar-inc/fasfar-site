@@ -28,6 +28,21 @@ export type VentureLogo = { wordmark: string } | (VentureMedia & { wordmark?: ne
 /** Interactive visual the showcase renders; unknown values fall back to a generic visual. */
 export type ShowcaseVisual = "mobility" | "commerce" | "hospitality" | "automation";
 
+/** Icon shown beside a story highlight. */
+export type StoryIcon = "car" | "plane" | "group";
+
+/**
+ * Optional editorial layout for the showcase panel: a kicker above the name,
+ * a large headline, a short paragraph, highlights and a full-bleed scene
+ * image (`media.scene`). Ventures without a story use the standard panel.
+ */
+export type VentureStory = {
+  kicker: string;
+  /** One entry per line on desktop. */
+  headline: string[];
+  highlights: { icon: StoryIcon; title: string; text: string }[];
+};
+
 export type Venture = {
   slug: string;
   name: string;
@@ -55,6 +70,8 @@ export type Venture = {
   url?: string;
   /** Optional dedicated page on this site, e.g. "/ventures/gardas". */
   page?: string;
+  /** Editorial showcase layout; needs `media.scene`. */
+  story?: VentureStory;
 };
 
 export const ventures: Venture[] = [
@@ -67,10 +84,27 @@ export const ventures: Venture[] = [
     featured: true,
     anchor: "crown",
     industry: "Mobility & Delivery",
-    description: "Smarter mobility for a more connected world.",
-    colors: { primary: "#1f4fd8", secondary: "#8fb0ff", surface: "#f1ede6", ink: "#141312" },
-    media: {},
+    description:
+      "GARDAŞ is our mobility platform, connecting people across North Cyprus with reliable, comfortable and modern transportation.",
+    colors: { primary: "#1f4fd8", secondary: "#8fb0ff", surface: "#f8f3ec", ink: "#141312" },
+    media: {
+      scene: {
+        src: "/ventures/gardas/scene.webp",
+        alt: "The GARDAŞ app on an iPhone showing taxis around Girne and a route to Ercan Airport, with a black GARDAŞ taxi in front of Kyrenia harbour",
+        width: 1528,
+        height: 2754,
+      },
+    },
     visual: "mobility",
+    story: {
+      kicker: "FASFAR",
+      headline: ["Smarter mobility", "for a more connected", "world."],
+      highlights: [
+        { icon: "car", title: "Reliable Rides", text: "Get around the city with ease." },
+        { icon: "plane", title: "Airport Transfers", text: "Comfortable and on time." },
+        { icon: "group", title: "More Space", text: "Ride solo or with a group." },
+      ],
+    },
   },
   {
     slug: "garpuz",
