@@ -1,0 +1,49 @@
+/* Editorial showcase panel (story layout). Desktop sizes scale with viewport
+   height so the copy clears the showcase progress strip on short screens. */
+.inner{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "visual" "body";row-gap:28px;min-height:100svh;padding:112px 20px 72px;box-sizing:border-box}
+.head{grid-area:head;position:relative;z-index:2}
+.body{grid-area:body;position:relative;z-index:2}
+.visual{grid-area:visual;position:relative;height:min(82svh,640px);margin:0 -20px;overflow:hidden;pointer-events:none}
+.rig{position:absolute;inset:0;will-change:transform}
+.scene{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:52% 42%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 90%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 9%,#000 90%,transparent 100%)}
+.rule{display:inline-block;height:1px;width:2.4rem;background:currentColor;opacity:.4}
+.kicker{margin:22px 0 0;font-size:15px;font-weight:500;letter-spacing:.3em;line-height:1;color:currentColor}
+.nameWrap{margin:6px 0 0;overflow:hidden;padding-bottom:.08em;perspective:800px}
+.name{display:block;transform-origin:bottom;font-size:clamp(3.4rem,18vw,5.8rem);font-weight:700;line-height:.9;letter-spacing:-.045em;color:currentColor}
+.headline{margin:18px 0 0;font-size:clamp(1.65rem,7.4vw,2.1rem);font-weight:300;line-height:1.14;letter-spacing:-.03em;color:currentColor}
+.headline span{display:inline}
+.headline span+span::before{content:" "}
+.desc{margin:0;max-width:38ch;font-size:15.5px;line-height:1.62;color:color-mix(in srgb, currentColor 60%, transparent)}
+.features{list-style:none;margin:26px 0 0;padding:0;display:grid;row-gap:14px}
+.feature{display:flex;align-items:center;gap:18px}
+.icon{flex:none;display:grid;place-items:center;width:56px;height:56px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(20,19,18,.05);color:currentColor;box-shadow:0 14px 28px -18px rgba(40,34,26,.45),inset 0 1px 0 #fff}
+.svg{width:26px;height:26px}
+.featureCopy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.featureCopy strong{font-size:17px;font-weight:500;letter-spacing:-.01em;color:currentColor}
+.featureCopy span{font-size:14.5px;color:color-mix(in srgb, currentColor 60%, transparent)}
+.cta{margin-top:30px}
+.cta button{height:58px!important;padding-left:30px!important;font-size:16.5px!important;gap:28px!important}
+.cta button>span:last-child{width:44px!important;height:44px!important}
+
+@media (min-width:768px){
+  .inner{grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"head ." "body .";grid-template-rows:auto auto;align-content:center;column-gap:4vw;row-gap:0;padding:clamp(92px,11vh,116px) 4.2vw clamp(84px,11.5vh,118px)}
+  :global([data-mode="stacked"]) .inner{min-height:100svh}
+  :global([data-mode="cinematic"]) .inner{height:100%;min-height:0}
+  .visual{position:absolute;top:0;right:0;bottom:0;left:30%;height:auto;margin:0;z-index:0;overflow:hidden}
+  .rig{inset:clamp(36px,4.5vh,56px) 0 0 0}
+  .scene{position:absolute;right:0;top:0;width:auto;height:106%;object-fit:contain;object-position:right top;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3.5%),linear-gradient(180deg,transparent 0,#000 7%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 3.5%),linear-gradient(180deg,transparent 0,#000 7%);mask-composite:intersect}
+  .kicker{margin-top:clamp(14px,2.4vh,26px);font-size:clamp(13px,min(1.35vw,2.1vh),20px)}
+  .name{font-size:clamp(3.4rem,min(8.2vw,11.6vh),8.5rem)}
+  .headline{margin-top:clamp(10px,2vh,24px);font-size:clamp(1.45rem,min(2.6vw,3.95vh),2.7rem)}
+  .headline span{display:block}
+  .headline span+span::before{content:none}
+  .desc{margin-top:clamp(10px,1.8vh,20px);font-size:clamp(13.5px,min(1.12vw,1.78vh),17px);line-height:1.55}
+  .features{margin-top:clamp(12px,2.4vh,28px);row-gap:clamp(6px,1.2vh,14px)}
+  .icon{width:clamp(40px,5.5vh,58px);height:clamp(40px,5.5vh,58px)}
+  .svg{width:clamp(22px,3vh,28px);height:clamp(22px,3vh,28px)}
+  .featureCopy strong{font-size:clamp(14.5px,min(1.3vw,2.05vh),19px)}
+  .featureCopy span{font-size:clamp(12.5px,min(1.05vw,1.68vh),15.5px)}
+  .cta{margin-top:clamp(14px,3vh,34px)}
+  .cta button{height:clamp(48px,6.2vh,62px)!important;padding-left:clamp(26px,2.3vw,34px)!important;font-size:clamp(15px,min(1.3vw,2.2vh),18.5px)!important}
+  .cta button>span:last-child{width:clamp(40px,5.6vh,50px)!important;height:clamp(40px,5.6vh,50px)!important}
+}

@@ -70,6 +70,16 @@ const mobility: Recipe = {
   },
   enter(panel, { tl, at, dur, reduced }) {
     const rig = one(panel, "rig");
+    // Story layout: the full-bleed scene settles in from slightly closer.
+    if (one(panel, "scene")) {
+      tl.fromTo(
+        rig,
+        reduced ? { autoAlpha: 0 } : { autoAlpha: 0, scale: 1.08, xPercent: 6, transformOrigin: "70% 60%" },
+        { autoAlpha: 1, scale: 1, xPercent: 0, duration: dur, ease: "power3.out" },
+        at,
+      );
+      return;
+    }
     tl.fromTo(
       rig,
       reduced ? { autoAlpha: 0 } : { autoAlpha: 0, z: -900, rotationY: -58, rotationX: 24, xPercent: 35, yPercent: 18 },
@@ -81,6 +91,11 @@ const mobility: Recipe = {
   },
   dwell(panel, ctx) {
     const { tl, at, dur, reduced } = ctx;
+    if (one(panel, "scene")) {
+      // A slow push-in on the scene while the venture holds the stage.
+      if (!reduced) tl.to(one(panel, "rig"), { scale: 1.04, xPercent: -1.5, transformOrigin: "70% 60%", duration: dur, ease: "none" }, at);
+      return;
+    }
     // A slow "camera" move around the phone while the route draws.
     if (!reduced) tl.to(one(panel, "rig"), { rotationY: 14, rotationX: -3, xPercent: -6, duration: dur, ease: "none" }, at);
     tl.to(one(panel, "route"), { strokeDashoffset: 0, duration: dur * 0.6, ease: "power1.inOut" }, at)
